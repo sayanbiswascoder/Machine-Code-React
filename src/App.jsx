@@ -1,49 +1,37 @@
-import { useEffect } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
 import './App.css'
 import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
   Navigate,
+  createBrowserRouter,
+  RouterProvider
 } from "react-router-dom";
 import OTPForm from "./components/OTPForm"
 import CourseList from "./components/CourseList"
 import Batches from "./components/Batches"
 
 function App() {
-  useEffect(() => {
-    Navigate
-  }, [])
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Navigate to="/otp-form" />
+    },
+    {
+      path: "/otp-form",
+      element: <OTPForm />
+    },
+    {
+      path: "/course-list",
+      element: <CourseList />
+    },
+    {
+      path: "/batches",
+      element: <Batches />
+    }
+  ])
 
 
   return (
     <>
-      <Router>
-        <Routes>
-          <Route
-            exact
-            path="/"
-            element={<Navigate to="/otp-form" />}
-          />
-          <Route
-            exact
-            path="otp-form"
-            element={<OTPForm />}
-          />
-          <Route
-            exact
-            path="course-list"
-            element={<CourseList />}
-          />
-          <Route
-            exact
-            path="batches"
-            element={<Batches />}
-          />
-        </Routes>
-      </Router>
+      <RouterProvider router={router} />
     </>
   )
 }
