@@ -29,17 +29,17 @@ function App() {
           />
           <Route
             exact
-            path="/otp-form"
+            path="otp-form"
             element={<OTPForm />}
           />
           <Route
             exact
-            path="/course-list"
+            path="course-list"
             element={<CourseList />}
           />
           <Route
             exact
-            path="/batches"
+            path="batches"
             element={<Batches />}
           />
         </Routes>
